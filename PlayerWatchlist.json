@@ -4,8 +4,8 @@
     "Punchline": "黑白名單玩家追蹤系統",
     "Description": "管理黑名單和白名單玩家，當目標玩家在指定範圍內時顯示連結線並發送通知。",
     "InternalName": "PlayerWatchlist",
-    "AssemblyVersion": "1.0.0.0",
+    "AssemblyVersion": "1.0.0.1",
     "RepoUrl": "",
     "ApplicableVersion": "any",
-    "DalamudApiLevel": 12
+    "DalamudApiLevel": 13
 }
