@@ -121,17 +121,13 @@ public sealed class Plugin : IDalamudPlugin
 
     private unsafe void UpdateDetectedPlayers()
     {
-        if (ObjectTable.GetObjectAddress(0) == nint.Zero)
-            return;
-
-        var localPlayer = ObjectTable.FirstOrDefault(x => x is IPlayerCharacter) as IPlayerCharacter;
+        currentDetectedPlayers.Clear();
+        var localPlayer = ObjectTable.LocalPlayer;
         if (localPlayer == null)
             return;
 
         var myPos = localPlayer.Position;
         var checkRange = Configuration.DetectionRadius * Configuration.DetectionRadius;
-
-        currentDetectedPlayers.Clear();
 
         foreach (var obj in ObjectTable)
         {
@@ -268,7 +264,7 @@ public sealed class Plugin : IDalamudPlugin
         if (!Configuration.ShowLines || currentDetectedPlayers.Count == 0)
             return;
 
-        var localPlayer = ObjectTable.FirstOrDefault(x => x is IPlayerCharacter) as IPlayerCharacter;
+        var localPlayer = ObjectTable.LocalPlayer;
         if (localPlayer == null)
             return;
 
